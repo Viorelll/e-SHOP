@@ -23,7 +23,7 @@ namespace EncondingTimeStringDisposable
         {
             Console.WriteLine("This is distructor ;) don't use");
         }
-        static void Main(string[] args)
+        static void Main2(string[] args)
         {
             //Encoding utf8 = Encoding.GetEncoding("utf-8");
             //Encoding ascii = Encoding.ASCII;
