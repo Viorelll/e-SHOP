@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="DomainModel.Mapping" 
+                   namespace="DomainModel.Mapping">
+  
+  <database-object>
+    
+    <create>
+      ALTER TABLE [Item]
+      ADD CONSTRAINT CK_ItemPricePositive CHECK ([Price] >= 0);
+
+      ALTER TABLE [BuyItem]
+      ADD CONSTRAINT CK_BuyItemQuantityPositive CHECK ([Quantity] > 0);
+
+      ALTER TABLE [Monitor]
+      ADD CONSTRAINT CK_DisplaySizePositive CHECK ([DisplaySize] BETWEEN 10 AND 120);
+
+      ALTER TABLE [CPU]
+      ADD CONSTRAINT CK_CpuModel CHECK ([CpuModel] BETWEEN 100 AND 10000);
+
+      ALTER TABLE [Laptop]
+      ADD CONSTRAINT CK_ProcessorFrequency CHECK ([ProcessorFrequency] > 0);
+
+      ALTER TABLE [Laptop]
+      ADD CONSTRAINT CK_MemoryCapacity CHECK ([MemoryCapacity] > 0);
+
+      ALTER TABLE [Laptop]
+      ADD CONSTRAINT CK_CpuHddCapacity CHECK ([HDDCapacity] > 0);
+
+      ALTER TABLE [Laptop]
+      ADD CONSTRAINT CK_Weight CHECK ([Weight] > 0);
+
+      ALTER TABLE [Laptop]
+      ADD CONSTRAINT DefaultLaptopWifiConnection DEFAULT 0 FOR [WifiConnection];
+
+      ALTER TABLE [Laptop]
+      ADD CONSTRAINT DefaultLaptopBluetoothConnection DEFAULT 0 FOR [BluetoothConnection];
+
+      ALTER TABLE [Motherboard]
+      ADD CONSTRAINT DefaultMotherboardVideoConnection DEFAULT 0 FOR [VideoConnection];
+
+      ALTER TABLE [Motherboard]
+      ADD CONSTRAINT DefaultMotherboardAudioConnection DEFAULT 0 FOR [AudioConnection];
+
+      ALTER TABLE [Mouse]
+      ADD CONSTRAINT CK_DpiPossitive CHECK ([Dpi] > 0);
+
+      ALTER TABLE [RAM]
+      ADD CONSTRAINT CK_RamFrequency CHECK ([Frequency] BETWEEN 100 AND 5000);
+
+      ALTER TABLE [Webcam]
+      ADD CONSTRAINT CK_WebcamPossitive CHECK ([Pixels] > 0);
+
+      ALTER TABLE [User]
+      ADD CONSTRAINT CK_UniqueEmail UNIQUE ([Email])
+    </create>
+    
+    <drop>
+    </drop>
+  </database-object>
+  
+</hibernate-mapping>
+

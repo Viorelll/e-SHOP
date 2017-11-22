@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace E_shopProject
 {
-    class Cart
+    public class Cart 
     {
         private List<BuyItem> list;
 
@@ -19,11 +18,12 @@ namespace E_shopProject
         {
             if (newItem == null)
             {
-                throw new Exception(nameof(newItem) + " is null");
+                throw new ArgumentException(nameof(newItem) + " is null");
             }
-
+            
             list.Add(newItem);
         }
+
 
         public void Clear() => list.Clear();
 
@@ -62,6 +62,7 @@ namespace E_shopProject
             return false;
         }
 
+   
         public void ViewItems()
         {
             if (!IsEmpty())
@@ -83,5 +84,6 @@ namespace E_shopProject
         }
 
 
+      
     }
 }

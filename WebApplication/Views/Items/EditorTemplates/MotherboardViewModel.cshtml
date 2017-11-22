@@ -1,0 +1,48 @@
+﻿@using WebApplication.Models
+@model WebApplication.Models.MotherboardViewModel
+
+@{
+    ViewBag.Title = "Motherboard";
+}
+
+@Html.Hidden("ModelType", typeof(MotherboardViewModel))
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.MbModel, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+    @Html.ValidationMessageFor(model => model.MbModel)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.Format, new { htmlAttributes = new { @class = "form-control", placeholder = "Format" } })
+    @Html.ValidationMessageFor(model => model.Format)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.ProcessorSocket, new {htmlAttributes = new {@class = "form-control", placeholder = "Processor socket"}})
+    @Html.ValidationMessageFor(model => model.ProcessorSocket)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.ProcessorManufacturer, new {htmlAttributes = new {@class = "form-control", placeholder = "Processor manufacturer" } })
+    @Html.ValidationMessageFor(model => model.ProcessorManufacturer)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.HDDInterface, new {htmlAttributes = new {@class = "form-control", placeholder = "Hdd interface" } })
+    @Html.ValidationMessageFor(model => model.HDDInterface)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.MemoryType, new {htmlAttributes = new {@class = "form-control", placeholder = "Memory type" } })
+    @Html.ValidationMessageFor(model => model.MemoryType)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.VideoConnection, new {htmlAttributes = new {@class = "form-control", placeholder = "Video connection" } })
+    @Html.ValidationMessageFor(model => model.VideoConnection)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.AudioConnection, new { htmlAttributes = new { @class = "form-control", placeholder = "Audio connectiont" } })
+    @Html.ValidationMessageFor(model => model.AudioConnection)
+</div>

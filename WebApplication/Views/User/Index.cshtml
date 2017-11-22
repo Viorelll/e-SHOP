@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebApplication.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="contact-page" class="container">
+    <div class="bg">
+
+        <div class="row" >
+            <div class="col-sm-8">
+                <div class="contact-form">
+
+                    <h2 class="title text-center">User CRUD</h2>
+
+                    <div class="status alert alert-success" style="display: none"></div>
+
+                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+
+                        <input type="button" value="Create" class="btn btn-primary" id = "createUserLink"/>
+
+                        <div class="vioTable">
+
+                            <table class="table" style="width: 1100px;">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Username)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.FirstName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LastName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Password)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Adress)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Username)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Password)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Adress)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </table>
+                        </div>
+
+                    </form>
+                 
+                </div>
+             
+            </div>
+         
+        </div>
+
+        <br />
+        <br/>
+        <br/>
+       
+    </div>
+</div>
+
+
+<div id="popupContainer">
+    <div id ="dlgCreateUser"></div>
+</div>

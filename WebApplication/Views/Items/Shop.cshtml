@@ -1,0 +1,93 @@
+﻿@using DomainModel.Models
+
+@model IEnumerable<object[]>
+
+@{
+    ViewBag.Title = "Shop";
+}
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="~/scripts/slider.js"></script>
+
+
+    <!--content-->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+                        <h2>Category</h2>
+                        <div class="panel-group category-products" id="accordian">
+
+
+                            <!--category-productsr-->
+                            @{
+                                var categories = Enum.GetNames(typeof(CATEGORY));
+
+                                foreach (var item in categories)
+                                {
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                @Html.ActionLink(@item, "Shop", new {category = item, page = 1})
+                                            </h4>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+
+                        <!--price-range-->
+                        <h2>Price Range</h2>
+
+                        <p>
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; font-size: 18px;">
+                        </p>
+
+                        <div id="slider-range"></div>
+                        <!--/price-range-->
+
+
+                            <br />
+
+                            <!--/category-productsr-->
+                            <div class="brands_products">
+                                <h2>Brands</h2>
+                                <div class="brands-name">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        @foreach (var item in Model)
+                                        {
+                                            <li>
+                                                <a href="">
+                                                    <span class="pull-right">(@item[1])</span>
+
+                                                    @item[0]
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--/brands_products-->
+
+
+                        </div>
+              </div>
+
+                @{
+                    Html.RenderAction("ItemsViewPartial", "Items",
+                        new {category = Request.QueryString["Category"],
+                            page = Request.QueryString["page"] });
+                }
+
+            </div>
+      </div>
+    </section>
+
+
+
+   

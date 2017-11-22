@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_shopProject
+﻿namespace E_shopProject
 {
-    class ItemEqualityComparer : EqualityComparer<Item>
+    using System.Collections.Generic;
+    using DomainModel.Models;
+    public class ItemEqualityComparer : EqualityComparer<Item>
     {
         public override bool Equals(Item x, Item y)
         {

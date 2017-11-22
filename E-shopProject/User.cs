@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_shopProject
+﻿namespace E_shopProject
 {
-    class User
+    using System;
+    public abstract class User
     {    
+        public string Username
+        {
+            get;
+        }
         public string Email
         {
-            get;  
+            get;
         }
 
         public string FirstName
@@ -33,26 +32,31 @@ namespace E_shopProject
             get;
         }
 
-        public User(string firstName, string lastName, string adress, string email, string passwod)
+        public User(string userName, string firstName, string lastName, string adress, string email, string password)
         {
+            if (userName == null)
+            {
+                throw new ArgumentException(nameof(firstName) + " is null");
+            }
             if (firstName == null)
             {
-                throw new Exception(nameof(firstName) + " is null");
+                throw new ArgumentException(nameof(firstName) + " is null");
             }
             if (lastName == null)
             {
-                throw new Exception(nameof(lastName) + " is null");
+                throw new ArgumentException(nameof(lastName) + " is null");
             }
-            if (passwod == null)
+            if (password == null)
             {
-                throw new Exception(nameof(passwod) + " is null");
+                throw new ArgumentException(nameof(password) + " is null");
             }
 
+            Username = userName;
             FirstName = firstName;
             LastName = lastName;
             Adress = adress;
             Email = email;
-            Password = passwod;
+            Password = password;
         }
 
         // TO DO

@@ -1,0 +1,18 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+
+
+<div class="container text-center">
+    <div class="logo-404"></div>
+    <div class="content-404">
+        <img src="~/template/images/404/404.png" class="img-responsive" alt="404 not found" width="400" height="400" />
+        <h3><b>OPPS!</b> Sorry, an error occurred while processing your request</h3>
+        <p>Exception message: "@Model.Exception.Message"</p>
+        <h2><a href="~/Home/Index">Bring me back Home</a></h2>
+    </div>
+</div>
+

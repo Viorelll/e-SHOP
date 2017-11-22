@@ -1,0 +1,133 @@
+﻿@using WebApplication.Models
+@model WebApplication.Models.ItemViewModel
+
+@{
+    ViewBag.Title = "Create";
+
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Monitor",
+        Value = "Monitor",
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Cpu",
+        Value = "CPU"
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Laptop",
+        Value = "Laptop"
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Keyboard",
+        Value = "Keyboard"
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Ram",
+        Value = "Ram"
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Webcam",
+        Value = "Webcam"
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Mouse",
+        Value = "Mouse"
+    });
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Motherboard",
+        Value = "Motherboard"
+    });
+}
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="~/scripts/dropdownlist.js"></script>
+
+@using (Html.BeginForm("Create", "Items", FormMethod.Post))
+{
+    
+    @Html.AntiForgeryToken()
+    <hr />
+ 
+    <div id="contact-page" class="container">
+        <div class="bg">
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="contact-form">
+                        <h2 class="title text-center">Create item</h2>
+
+                        @*@Html.ValidationSummary(true, "", new { @class = "viorValidation" })*@
+                        <div class="status alert alert-success" style="display: none"></div>
+                       
+                        <div class="form-group col-md-12">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Item name" , Name = "Name"} })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control", placeholder = "Brand", Name = "Brand" } })
+                            @Html.ValidationMessageFor(model => model.Brand)
+                         </div>
+
+
+                        <div class="form-group col-md-12">
+                            @Html.EnumDropDownListFor(model => model.Category, optionLabel: "Select category", htmlAttributes: new {Name = "Category"})
+                            @Html.ValidationMessageFor(model => model.Category)
+                         </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Price", Name = "Price" } })
+                            @Html.ValidationMessageFor(model => model.Price)
+                         </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description", Name = "Description" } })
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.DropDownList("ItemType", listItems, "Select item type", new {id = "dropDownList"})
+                        </div>
+
+                        @*script dropDownList*@
+                        <div id="itemType"></div>
+
+                      
+
+                        <div class="form-group col-md-12">
+                            <input type="submit" name="create" class="btn btn-primary" value="Create">
+                        </div>
+                         
+
+                        <div>
+                            <p>@Html.ActionLink("Back to List", "Index")</p>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--/#contact-page-->
+}
+
+

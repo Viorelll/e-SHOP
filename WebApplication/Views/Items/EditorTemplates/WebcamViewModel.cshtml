@@ -1,0 +1,45 @@
+﻿@using WebApplication.Models
+@model WebApplication.Models.WebcamViewModel
+
+@{
+    ViewBag.Title = "Webcam";
+}
+
+
+@Html.Hidden("ModelType", typeof(WebcamViewModel))
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.WebcamModel, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+    @Html.ValidationMessageFor(model => model.WebcamModel)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.WebcamInterface, new { htmlAttributes = new { @class = "form-control", placeholder = "Webcam interface" } })
+    @Html.ValidationMessageFor(model => model.WebcamInterface)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.Pixels, new { htmlAttributes = new { @class = "form-control", placeholder = "Pixels" } })
+    @Html.ValidationMessageFor(model => model.Pixels)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.VideoResolution.Height, new {htmlAttributes = new {@class = "form-control", placeholder = "Video resolution high"}})
+    @Html.ValidationMessageFor(model => model.VideoResolution.Height)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.VideoResolution.Width, new { htmlAttributes = new { @class = "form-control", placeholder = "Video resolution width" } })
+    @Html.ValidationMessageFor(model => model.VideoResolution.Width)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.PhotoResolution.Height, new {htmlAttributes = new {@class = "form-control", placeholder = "Photo resolution high"}})
+    @Html.ValidationMessageFor(model => model.PhotoResolution.Height)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.PhotoResolution.Width, new { htmlAttributes = new { @class = "form-control", placeholder = "Photo resolution width" } })
+    @Html.ValidationMessageFor(model => model.PhotoResolution.Width)
+</div>
+

@@ -1,0 +1,41 @@
+﻿@model WebApplication.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<h2 class="title text-center">User details</h2>
+
+<div class="container">
+    <div class="register-req" style="font-size: 16px;">
+        <br />
+        <strong>@Html.DisplayNameFor(model => model.Username):</strong> @Html.DisplayFor(model => model.Username)
+        <br/>
+        <strong> @Html.DisplayNameFor(model => model.Email):</strong> @Html.DisplayFor(model => model.Email)
+        <br/>
+        <strong>@Html.DisplayNameFor(model => model.FirstName):</strong> @Html.DisplayFor(model => model.FirstName)
+        <br/>
+        <strong> @Html.DisplayNameFor(model => model.LastName):</strong> @Html.DisplayFor(model => model.LastName)
+        <br/>
+        <strong>@Html.DisplayNameFor(model => model.Adress):</strong> @Html.DisplayFor(model => model.Adress)
+
+        <br/>
+        <br/>
+    
+
+
+        <input type="button" value="Edit" class="btn btn-primary" onclick="location.href = '@Url.Action("Edit", "User", new {id = Model.Id})'" />
+        <p>
+            <br />
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+
+<br />
+<br />
+
+
+   

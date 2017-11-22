@@ -1,0 +1,74 @@
+﻿@model WebApplication.Models.CustomerViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new {@id = "saveUserForm"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="contact-page" class="container">
+        <div class="bg">
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="contact-form">
+                     
+                        <div class="status alert alert-success" style="display: none"></div>
+
+                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                            
+         
+                            <div class="form-group col-md-12">     
+                                @Html.EditorFor(model => model.Username, new {htmlAttributes = new {@class = "form-control", placeholder = "Username"}})
+                                @Html.ValidationMessageFor(model => model.Username)           
+                            </div>
+
+
+                            <div class="form-group col-md-12">
+                                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control", placeholder = "Email"}})
+                                @Html.ValidationMessageFor(model => model.Email)
+                                
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control", placeholder = "First name"}})
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                                
+                             </div>
+
+                            <div class="form-group col-md-12">
+                                @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control", placeholder = "Last name"}})
+                                @Html.ValidationMessageFor(model => model.LastName)
+                                
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                @Html.EditorFor(model => model.Adress, new {htmlAttributes = new {@class = "form-control", placeholder = "Adress"}})
+                                @Html.ValidationMessageFor(model => model.Adress)
+                                
+                             </div>
+
+                            <div class="form-group col-md-12">
+                                @Html.PasswordFor(model => model.Password, new {@class = "form-control", placeholder = "Password"})
+                                @Html.ValidationMessageFor(model => model.Password)
+                                
+                             </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+       
+
+        </div>
+    </div>
+    <!--/#contact-page-->
+
+}
+
+
+
+

@@ -1,0 +1,83 @@
+﻿@using WebApplication.Models
+@model WebApplication.Models.LaptopViewModel
+
+@{
+    ViewBag.Title = "Laptop";
+}
+
+@Html.Hidden("ModelType", typeof(LaptopViewModel))
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.LaptopModel, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+    @Html.ValidationMessageFor(model => model.LaptopModel)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.SistemOperation, new { htmlAttributes = new { @class = "form-control", placeholder = "Sistem operation" } })
+    @Html.ValidationMessageFor(model => model.SistemOperation)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.DisplayType, new {htmlAttributes = new {@class = "form-control", placeholder = "Display type"}})
+    @Html.ValidationMessageFor(model => model.DisplayType)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.DisplaySize, new {htmlAttributes = new {@class = "form-control", placeholder = "Display size" } })
+    @Html.ValidationMessageFor(model => model.DisplaySize)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.Resolution.Height, new {htmlAttributes = new {@class = "form-control", placeholder = "Resolution height"}})
+    @Html.ValidationMessageFor(model => model.Resolution.Height)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.Resolution.Width, new { htmlAttributes = new { @class = "form-control", placeholder = "Resolution width" } })
+    @Html.ValidationMessageFor(model => model.Resolution.Width)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.ProcessorManufacturer, new {htmlAttributes = new {@class = "form-control", placeholder = "Processor manufacturer" } })
+    @Html.ValidationMessageFor(model => model.ProcessorManufacturer)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.ProcessorModel, new {htmlAttributes = new {@class = "form-control", placeholder = "Processor model"}})
+    @Html.ValidationMessageFor(model => model.ProcessorModel)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.ProcessorFrequency, new { htmlAttributes = new { @class = "form-control", placeholder = "Processor frequency" } })
+    @Html.ValidationMessageFor(model => model.ProcessorFrequency)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.MemoryCapacity, new {htmlAttributes = new {@class = "form-control", placeholder = "Memory capacity" } })
+    @Html.ValidationMessageFor(model => model.MemoryCapacity)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.HDDCapacity, new {htmlAttributes = new {@class = "form-control", placeholder = "Hdd capacity" } })
+    @Html.ValidationMessageFor(model => model.HDDCapacity)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.Weight, new {htmlAttributes = new {@class = "form-control", placeholder = "Weight" } })
+    @Html.ValidationMessageFor(model => model.Weight)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.VideocardModel, new {htmlAttributes = new {@class = "form-control", placeholder = "Videocard model"}})
+    @Html.ValidationMessageFor(model => model.VideocardModel)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.WifiConnection, new {htmlAttributes = new {@class = "form-control"}})
+    @Html.ValidationMessageFor(model => model.WifiConnection)
+</div>
+
+<div class="form-group col-md-12">
+    @Html.EditorFor(model => model.BluetoothConnection, new { htmlAttributes = new { @class = "form-control"}})
+    @Html.ValidationMessageFor(model => model.BluetoothConnection)
+</div>

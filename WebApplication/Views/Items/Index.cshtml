@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebApplication.Models.ItemViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="contact-page" class="container">
+    <div class="bg">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="contact-form">
+
+                    <h2 class="title text-center">Item CRUD</h2>
+
+                    <div class="status alert alert-success" style="display: none"></div>
+                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+
+                        <input type="button" value="Create" class="btn btn-primary" onclick="location.href = '@Url.Action("Create", "Items")'" />
+
+                        <table class="table" style="width: 1100px;">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Brand)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Category)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Brand)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+   
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </table>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <br />
+        <br />
+        <br/>
+
+        
+    </div>
+</div>

@@ -1,7 +1,9 @@
-﻿
-namespace E_shopProject
+﻿namespace E_shopProject
 {
-    class BuyItem
+    using System;
+    using DomainModel.Models;
+
+    public class BuyItem 
     {
         public int Quantity
         {
@@ -11,15 +13,18 @@ namespace E_shopProject
 
         public Item Item
         {
-            get;    
+            get;
         }
         public BuyItem(Item item, int quantity = 1)
         {
+            if (item == null)
+            {
+                throw new ArgumentException(nameof(item) + " is null");
+            }
             Item = item;
             Quantity = quantity;
         }
 
-        //Expression-Bodied
         public double CalcPrice() => Item.Price * Quantity;
 
         public bool UpdateQuanity(int newQuantity)
@@ -35,5 +40,7 @@ namespace E_shopProject
 
         public override string ToString() => $"Item name: {Item.Name} \tCategory: {Item.Category}\n";
 
+      
     }
+    
 }

@@ -1,32 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_shopProject
+﻿namespace E_shopProject
 {
-    class Order
+    using System;
+    public class Order
     {
-        public string DateCreated
-        {
-            get;
-            set;
-        }
+        public enum ORDER_STATUS { New = 1, Shipped, Delivered };
 
-        public string DateShipped
+        public Order(string shipTo, ORDER_STATUS status, DateTime dateCreated, DateTime dateShipped)
         {
-            get;
-            set;
-        }
+            if (string.IsNullOrWhiteSpace(shipTo))
+            {
+                throw new ArgumentException(nameof(shipTo) + " is null.");
+            }
 
-        public bool Status
-        {
-            get;
-            set;
+            ShipTo = shipTo;
+            OrderStatus = status;
+            DateCreated = dateCreated;
+            DateShipped = dateShipped;
         }
-
+        public DateTime DateCreated { get; }   
+        public DateTime DateShipped { get; }
+        public ORDER_STATUS OrderStatus{ get; }
+        public string ShipTo { get; }
         public void PlaceOrder() { }
-         
+
+        public override string ToString()
+        {
+            return $"Shiping to adress: {ShipTo}\nDate created: {DateCreated}\nDateShipped: {DateShipped}\nOrder status: {OrderStatus}";
+        }
     }
 }
